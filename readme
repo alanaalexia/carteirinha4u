@@ -3,47 +3,27 @@ Trabalho de Programação Avançada Dupla: Alana e Pedro Data: Novembro/2025
 
 1. Descrição da Aplicação
 O Carteirinha4u é uma aplicação Web desenvolvida para gerenciar e visualizar carteirinhas digitais de associados vinculados a instituições (faculdades, clubes, associações). No momento, só está adaptada ao DCE - FACAMP.
-
 A solução resolve o problema da emissão física de documentos, permitindo que instituições gerenciem seus membros de forma dinâmica e que os associados tenham acesso instantâneo à sua identificação digital válida.
-
 A arquitetura utiliza o padrão de comunicação via Web Services (WS) entre um frontend reativo e um backend RESTful, com persistência de dados em nuvem.
-
 
 2. Tecnologias Utilizadas
 O projeto atende rigorosamente aos requisitos não funcionais estipulados:
 
-
 Frontend: Desenvolvido em Vue.js (Single Page Application com Vue Router) utilizando VSCode.
-
-
 Backend: Desenvolvido em Flask (Python) utilizando VSCode.
-
-
 Banco de Dados: NoSQL MongoDB hospedado no MongoDB Atlas.
-
-
 Comunicação: API REST via HTTP (Axios no front, Flask routes no back).
-
-
 Driver de Conexão: PyMongo.
-
 Bibliotecas adicionais: pandas e openpyxl (processamento de planilhas), werkzeug (upload seguro de imagens).
 
 3. Funcionalidades
 Módulo de Autenticação
-
 Login Unificado: Interface com alternância (toggle) entre "Instituição" e "Associado", direcionando para fluxos distintos.
-
 Cadastro de Associados: Formulário público para novos membros, incluindo upload de foto de perfil e validação de e-mail único.
-
 Módulo da Instituição (Dashboard)
-
 CRUD de Associados: Permite listar, editar (inline na tabela) e excluir associados.
-
 Gestão de Status: Visualização rápida de status "Ativo" (verde) ou "Inativo" (vermelho).
-
 Auditoria via Planilha: Funcionalidade avançada para upload de arquivo .csv ou .xlsx. O sistema compara os CPFs da planilha com o banco de dados; associados não encontrados na planilha externa são listados e podem ser inativados em massa.
-
 Módulo do Associado (Carteirinha)
 Carteirinha Digital: Visualização da identificação com layout moderno (Dark Mode), exibindo foto, nome, CPF, instituição vinculada e data de validade calculada dinamicamente.
 
@@ -52,81 +32,52 @@ Siga os passos abaixo para executar a solução localmente.
 
 Pré-requisitos
 Node.js e npm instalados.
-
 Python 3.x instalado.
-
 Conta no MongoDB Atlas (Cluster criado).
 
 Passo A: Configuração do Backend (Flask)
 Acesse a pasta do backend:
-
-Bash
-
 cd backend
+
 Crie e ative o ambiente virtual:
-
-Bash
-
 # Windows
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 # Linux/Mac
 python3 -m venv venv
 source venv/bin/activate
+
 Instale as dependências:
-
-Bash
-
 pip install Flask pymongo python-dotenv flask-cors pandas openpyxl werkzeug
+
 Configure as variáveis de ambiente:
-
 Crie um arquivo .env na pasta backend.
-
 Adicione sua string de conexão do MongoDB Atlas:
+MONGO_URI="mongodb+srv://alana:senha@cluster.fpyyebc.mongodb.net/Database?retryWrites=true&w=majority" // Que agonia de deixar isso aqui.
 
-Ini, TOML
-
-MONGO_URI="mongodb+srv://<usuario>:<senha>@<cluster>.mongodb.net/Database?retryWrites=true&w=majority" (falar com a alana para obter usuário e senha)
 Execute o servidor:
-
-Bash
-
 python app.py
 O servidor rodará em http://127.0.0.1:5000.
 
 Passo B: Configuração do Frontend (Vue.js)
 Abra um novo terminal e acesse a pasta do frontend:
-
-Bash
-
 cd frontend
+
 Instale as dependências do projeto:
-
-Bash
-
 npm install
+
 Execute o projeto em modo de desenvolvimento:
-
-Bash
-
 npm run dev
 Acesse a aplicação no navegador através do link exibido (geralmente http://localhost:5173).
 
 Passo C: Utilização
 Login Institucional (Teste):
-
 Selecione a aba "Instituição".
-
 E-mail: admin@faculdade.com.br
-
 Senha: 123456
-
 Acesse o Dashboard para gerenciar usuários ou testar o upload de planilha.
 
 Login Associado:
-
 Utilize o link "Cadastre-se aqui" na tela de login.
-
 Crie uma conta (faça upload de uma foto).
-
 Faça login na aba "Associado" para visualizar sua carteirinha.
