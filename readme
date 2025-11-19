@@ -86,7 +86,7 @@ Adicione sua string de conexão do MongoDB Atlas:
 
 Ini, TOML
 
-MONGO_URI="mongodb+srv://<usuario>:<senha>@<cluster>.mongodb.net/Database?retryWrites=true&w=majority"
+MONGO_URI="mongodb+srv://<usuario>:<senha>@<cluster>.mongodb.net/Database?retryWrites=true&w=majority" (falar com a alana para obter usuário e senha)
 Execute o servidor:
 
 Bash
