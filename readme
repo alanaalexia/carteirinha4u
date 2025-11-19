@@ -1,0 +1,6 @@
+node instalado   
+   
+   cd frontend_projeto
+   npm install
+   npm run format
+   npm run dev
