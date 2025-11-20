@@ -33,10 +33,9 @@ Siga os passos abaixo para executar a solução localmente.
 Pré-requisitos
 Node.js e npm instalados.
 Python 3.x instalado.
-Conta no MongoDB Atlas (Cluster criado).
 
 Passo A: Configuração do Backend (Flask)
-Acesse a pasta do backend:
+Acesse a pasta do backend (pelo powershell):
 cd backend
 
 Crie e ative o ambiente virtual:
@@ -47,7 +46,7 @@ python -m venv venv
 python3 -m venv venv
 source venv/bin/activate
 
-Instale as dependências:
+Instale as dependências (aqui pode ser pelo cmd):
 pip install Flask pymongo python-dotenv flask-cors pandas openpyxl werkzeug
 
 Configure as variáveis de ambiente:
@@ -55,7 +54,7 @@ Crie um arquivo .env na pasta backend.
 Adicione sua string de conexão do MongoDB Atlas:
 MONGO_URI="mongodb+srv://alana:senha@cluster.fpyyebc.mongodb.net/Database?retryWrites=true&w=majority" // Que agonia de deixar isso aqui.
 
-Execute o servidor:
+Execute o servidor (enquanto o venv estiver rodando, na mesma tela de powershell):
 python app.py
 O servidor rodará em http://127.0.0.1:5000.
 
